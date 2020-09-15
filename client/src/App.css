@@ -1,0 +1,102 @@
+.recipe_header {
+  height: 50em;
+  width: 100%;
+  margin-bottom: 2em;
+  background: linear-gradient(rgba(232, 232, 232, 0), rgba(0, 0, 0, 0.6)),
+    url(https://media.cheftap.com/wp-content/themes/cheftap/images/white_hero.jpg)
+      no-repeat 0 0;
+  background-size: cover;
+  background-position: top -20% right 10%;
+}
+.recipe_desc {
+  margin-top: 20%;
+  color: #f8f9fa;
+  text-align: center;
+}
+.recipe_desc h1 {
+  font-size: 60px;
+}
+.list_title {
+  margin-top: 50px;
+  margin-bottom: 50px;
+  text-align: center;
+}
+.list_title--backgroundimage {
+  height: 15em;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url(https://media.cheftap.com/wp-content/themes/cheftap/images/screenshots/spices.jpg)
+      no-repeat;
+  background-size: cover;
+  background-position: right 40%;
+  color: #f8f9fa;
+  margin-bottom: 100px;
+}
+.title {
+  margin-top: 50px;
+  font-size: 50px;
+  text-align: center;
+}
+.recipe--backgroundimage {
+  height: 15em;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url(https://media.cheftap.com/wp-content/themes/cheftap/images/screenshots/shopping.jpg)
+      no-repeat 0 0;
+  background-size: cover;
+  background-position: right 0%;
+  color: #f8f9fa;
+  margin-bottom: 100px;
+}
+.recipe_edit--backgroundimage {
+  height: 15em;
+  width: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+    url(https://media.cheftap.com/wp-content/themes/cheftap/images/screenshots/clip.jpg)
+      no-repeat 0 0;
+  background-size: cover;
+  background-position: right 30%;
+  color: #f8f9fa;
+  margin-bottom: 100px;
+}
+.home_header {
+  height: 46em;
+  width: 100%;
+  background: linear-gradient(rgba(232, 232, 232, 0), rgba(0, 0, 0, 0.6)),
+    url(./components/assets/angle-eleve-cuisses-poulet-frit-sauce_23-2148646631.jpg)
+      no-repeat 0 0;
+  background-size: cover;
+  background-position: top -20%;
+}
+.home_desc {
+  margin-top: 12%;
+  color: #f8f9fa;
+  text-align: center;
+}
+.home_desc h1 {
+  font-size: 60px;
+}
+.login_image {
+  height: 46em;
+  width: 100%;
+  background: linear-gradient(rgba(232, 232, 232, 0), rgba(0, 0, 0, 0.6)),
+    url(./components/assets/arrangement-differents-ingredients-espace-copie_23-2148541870.jpg)
+      no-repeat 0 0;
+  background-size: cover;
+  background-position: top -20%;
+}
+.register_image {
+  height: 46em;
+  width: 100%;
+  background: linear-gradient(rgba(232, 232, 232, 0), rgba(0, 0, 0, 0.6)),
+    url(./components/assets/ingredients-cuisson-pour-pate-bleu-vue-dessus-farine-oeufs-du-beurre-du-sucre-ustensiles-cuisine-pour-cuisson-maison-espace-copie-pour-texte_88281-4037.jpg)
+      no-repeat 0 0;
+  background-size: cover;
+  background-position: top -20%;
+}
+.footer{
+  background: #343a40;
+  color: #cacace;
+  text-align: center;
+  padding:20px;
+}

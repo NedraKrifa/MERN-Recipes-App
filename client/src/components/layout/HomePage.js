@@ -15,7 +15,7 @@ import {
 } from "reactstrap";
 import logo from "../assets/large_gastroly-360x200.png";
 
-function HomeHeader() {
+function HomePage() {
   const [isOpen, setIsOpen] = useState(false);
   const toggle = () => setIsOpen(!isOpen);
   return (
@@ -63,4 +63,4 @@ function HomeHeader() {
     </div>
   );
 }
-export default HomeHeader;
+export default HomePage;

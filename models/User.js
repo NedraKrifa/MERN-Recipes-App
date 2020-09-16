@@ -14,10 +14,6 @@ const UserSchema = mongoose.Schema({
       type: String,
       required: true
   },
-  confirm_password: {
-    type: String,
-    required: true
-},
   register_date: {
       type: Date,
       default: Date.now,

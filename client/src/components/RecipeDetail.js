@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, Redirect } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getRecipe } from "../actions/recipeActions";
 import Stars from "./layout/stars/Stars";
@@ -23,6 +23,12 @@ function RecipeDetail() {
   useEffect(() => dispatch(getRecipe(id)), []);
   const item = useSelector((state) => state.recipes.item);
   const [varRate, setVarRate] = useState(0);
+  const isAuthenticated = useSelector((state) => state.auth.isAuthenticated);
+
+  if (!isAuthenticated) {
+    return <Redirect to="/" />;
+  }
+  
   return (
     <div>
       <div className="recipe--backgroundimage">

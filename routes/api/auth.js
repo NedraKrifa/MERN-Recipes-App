@@ -3,16 +3,24 @@ const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 const router = express.Router();
 const User = require("../../models/User");
-const { registerValidation, loginValidation } = require("../../validation");
-const verify = require("../verifyToken");
+const {
+  registerValidation,
+  loginValidation,
+  ValidationError,
+} = require("../../validation");
+const verify = require("../middleware/verifyToken");
 
-//registration
 router.post("/register", async (req, res) => {
   const { name, email, password, confirm_password } = req.body;
 
   //LETS VALIDATE THE DATA BEFORE WE ADD A USER
-  const { error } = registerValidation(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  const { error } = registerValidation({
+    name,
+    email,
+    password,
+    confirm_password,
+  });
+  if (error) return res.status(400).send(ValidationError(error));
 
   //checking if the user is already in the database
   const emailExist = await User.findOne({ email });
@@ -27,7 +35,6 @@ router.post("/register", async (req, res) => {
     name,
     email,
     password: hashPassword,
-    confirm_password: hashPassword,
   });
 
   try {
@@ -47,13 +54,12 @@ router.post("/register", async (req, res) => {
   }
 });
 
-//login
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
 
   //LETS VALIDATE THE DATA BEFORE WE A USER
-  const { error } = loginValidation(req.body);
-  if (error) return res.status(400).send(error.details[0].message);
+  const { error } = loginValidation({ email, password });
+  if (error) return res.status(400).send(ValidationError(error));
 
   //checking if the email exists
   const user = await User.findOne({ email });
@@ -81,14 +87,16 @@ router.post("/login", async (req, res) => {
 });
 
 //Get user:private
-router.get('/user', verify, async (req, res) => {
-    try {
-      const user = await User.findById(req.user._id).select('-password').select('-confirm_password');
-      if (!user) return res.status(400).send('User Does not exist');
-      res.json(user);
-    } catch (e) {
-      res.status(400).json({ msg: e.message });
-    }
-  });
+router.get("/user", verify, async (req, res) => {
+  try {
+    const user = await User.findById(req.user._id)
+      .select("-password")
+      .select("-confirm_password");
+    if (!user) return res.status(400).send("User Does not exist");
+    res.json(user);
+  } catch (e) {
+    res.status(400).json({ msg: e.message });
+  }
+});
 
 module.exports = router;

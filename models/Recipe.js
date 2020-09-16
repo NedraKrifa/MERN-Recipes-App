@@ -1,13 +1,13 @@
 const mongoose = require("mongoose");
-
-const RecipeItemSchema = mongoose.Schema({
+const data = require('../config.json');
+const RecipeSchema = mongoose.Schema({
   title: {
     type: String,
     required: true,
   },
   image: {
     type: String,
-    default: "https://photos.bigoven.com/recipe/hero/recipe-no-image.jpg?h=500&w=500",
+    default: data.defaultRecipeImage,
   },
   instructions: {
     type: String,
@@ -23,4 +23,4 @@ const RecipeItemSchema = mongoose.Schema({
   }
 });
 
-module.exports = mongoose.model("recipeitems", RecipeItemSchema);
+module.exports = mongoose.model("recipeitems", RecipeSchema);

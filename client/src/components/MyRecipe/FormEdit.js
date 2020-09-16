@@ -9,7 +9,6 @@ import {
   FormGroup,
   Label,
   Input,
-  FormText,
   Container,
   Navbar,
   NavbarBrand,
@@ -36,6 +35,7 @@ function FormEdit() {
     dispatch(editRecipe(editItem, id));
     console.log("edit");
   };
+
   return (
     <div>
       <div className="recipe_edit--backgroundimage">

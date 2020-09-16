@@ -1,7 +1,6 @@
 //VALIDATION
 const Joi = require("@hapi/joi");
 
-//Register Validation
 const registerValidation = (data) => {
   const schema = Joi.object({
     name: Joi.string().min(6).required(),
@@ -12,7 +11,6 @@ const registerValidation = (data) => {
   return schema.validate(data);
 };
 
-//Login Validation
 const loginValidation = (data) => {
   const schema = Joi.object({
     email: Joi.string().min(6).required().email(),
@@ -21,5 +19,8 @@ const loginValidation = (data) => {
   return schema.validate(data);
 };
 
-module.exports.registerValidation = registerValidation;
-module.exports.loginValidation = loginValidation;
+const ValidationError = (error) => {
+  return error.details[0].message;
+};
+
+module.exports = { registerValidation, loginValidation, ValidationError };
